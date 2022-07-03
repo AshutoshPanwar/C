@@ -4,11 +4,11 @@
 int main(void)
 {
     // Prompt user for x
-    long x = get_long("X: ");
+    float x = get_float("X: ");
 
     // Prompt user for y
-    long y = get_long("Y: ");
+    float y = get_float("Y: ");
 
     // perform Addition
-    printf("%li\n", x+y);
+    printf("%.2f\n", x+y);
 }
