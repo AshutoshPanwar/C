@@ -4,9 +4,12 @@
 
 int main(void)
 {
-    string name = get_string("Name: ");
+    string name = get_string("Input: ");
+    printf("Output: ");
 
-    int length = strlen(name);
-
-    printf("Lenght: %i",length );
+    for (int i = 0, n = strlen(name); i < n; i++)
+    {
+        printf("%c", name[i]);
+    }
+    printf("\n");
 }
