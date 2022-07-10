@@ -10,11 +10,11 @@ int main(void)
 
     char *t = malloc( strlen(s) + 1 );          // Allocating blank memory
 
-    for (int i = 0; i < strlen(s); i++)
-    {
-        t[i] = s[i];                            // Copying data of s to t
-    }
-    
+    // for (int i = 0; i < strlen(s); i++)
+    // {
+    //     t[i] = s[i];                            // Copying data of s to t
+    // }
+    strcpy(t,s);                                // Sugar syntacting ^ same as above approch
 
     t[0] = toupper(t[0]);                       // Making changes to t(copy)
 
