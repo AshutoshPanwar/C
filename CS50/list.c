@@ -2,50 +2,68 @@
 #include <stdlib.h>
 #include <cs50.h>
 
+typedef struct node
+{
+    int number;
+    struct node *next;
+}
+node;
+
+
 int main(void)
 {
-    // Dynamically allocate an array of size 3
-    int *list = malloc( 3 * sizeof(int) );
+    // List of size zero
+    node *list = NULL;
 
-    if ( list == NULL )
+    // Add a number to list
+    node *n = malloc( sizeof(node) );
+
+    if ( n == NULL )
     {
         return 1;
     }
-    
-    // Assign three numbers to array
-    list[0] = 1;
-    list[1] = 2;
-    list[2] = 3;
+    n->number = 1;
+    n->next = NULL;
 
+    // Update list to point to new node
+    list = n;
 
-    // Time passes
-
-    // Resize array to be size of 4
-    int *tmp = realloc(list, 4* sizeof(int));
-    if (tmp == NULL)
+    // Add a number to list
+    n = malloc( sizeof(node) );
+    if ( n == NULL )
     {
         free(list);
         return 1;
     }
+    n->number = 2;
+    n->next = NULL;
+    list->next = n;
 
-    for (int i = 0; i < 3; i++)
+    // Add a number to list
+    n = malloc( sizeof(node) );
+    if ( n == NULL )
     {
-        tmp[i] = list[i];
+        free(list->next);
+        free(list);
+        return 1;
     }
-    
+    n->number = 3;
+    n->next = NULL;
+    list->next->next = n;
 
-    // Add 4th number to array
-    tmp[3] = 4;
-
-    // Remember new array
-    list = tmp;
-
-    // Print new array
-    for (int i = 0; i < 4; i++)
+    // Print numbers
+    for (node *tmp = list; tmp != NULL; tmp = tmp->next)
     {
-        printf("%i\n" , list[i]);
+        printf("%i\n", tmp->number);
     }
-    
-    free(list);
+
+
+    // Free list
+    while (list != NULL)
+    {
+        node *tmp = list->next;
+        free(list);
+        list = tmp;
+    }
     return 0;
 }
