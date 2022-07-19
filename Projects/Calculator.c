@@ -55,6 +55,7 @@ int main()
     else
     {
         printf("Error: Invalid Operator!\n");
+        return 1;
     }
 
     return 0;
