@@ -1,9 +1,11 @@
-
+// Matrix Calculator for Addition, Subtraction, Multiplication, Swapping
 
 #include <stdio.h>
 
+// Driver Code
 int main()
 {
+    // Prompt User for imput
     int M_size, opt;
     printf("Enter the size of square matrix: ");
     scanf("%i", &M_size);
@@ -31,6 +33,7 @@ int main()
     printf("Select the operation you want to perform:\n1 - Addition(+)\n2 - Subtration\n3 - Multiplication(*)\n4 - Swapping(A <-> B)\n");
     scanf("%i",&opt);
 
+    // Contitional on the basis of user input
     if ( opt == 1 )
     {
         float tmp_mx[M_size][M_size];
